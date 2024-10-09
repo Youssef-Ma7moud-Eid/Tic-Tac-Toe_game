@@ -8,14 +8,21 @@ Future<void> showDialogMessage(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.white,
         title: Text(
           title,
           style: const TextStyle(
+            color: Colors.red,
             fontSize: 20,
           ),
         ),
-        content: Text(message),
+        content: Text(
+          message,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+          ),
+        ),
         actions: [
           TextButton(
             onPressed: () {
@@ -23,9 +30,7 @@ Future<void> showDialogMessage(
             },
             child: const Text(
               'Play Again',
-              style: TextStyle(
-                fontSize: 20,
-              ),
+              style: TextStyle(fontSize: 20, color: Colors.blue),
             ),
           ),
         ],

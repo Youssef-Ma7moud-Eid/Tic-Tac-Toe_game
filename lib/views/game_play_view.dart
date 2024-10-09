@@ -17,7 +17,6 @@ class _GamePlayViewState extends State<GamePlayView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: BlocConsumer<PlayCubit, Allstate>(
         listener: (context, state) async {
           if (state is Winner || state is Draw) {
@@ -65,7 +64,14 @@ class _GamePlayViewState extends State<GamePlayView> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const ButtomWidget(),
+                ButtomWidget(
+                  color: Colors.red,
+                  text: 'Reset',
+                  icon: Icons.refresh,
+                  onPressed: () {
+                    BlocProvider.of<PlayCubit>(context).restart();
+                  },
+                ),
               ],
             ),
           ));
