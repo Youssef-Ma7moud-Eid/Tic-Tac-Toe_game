@@ -38,7 +38,6 @@ class _PlayWidgetState extends State<PlayWidget> {
                 } else {
                   BlocProvider.of<PlayCubit>(context).playname();
                 }
-                check(context);
               }
             },
             child: Text(
@@ -60,6 +59,3 @@ Map<String, Color> textColor = {
   'O': const Color.fromARGB(255, 8, 80, 36),
 };
 List<String> list = ['', '', '', '', '', '', '', '', ''];
-void check(BuildContext context) {
-  BlocProvider.of<PlayCubit>(context).checkwinner();
-}

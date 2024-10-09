@@ -26,45 +26,37 @@ class PlayCubit extends Cubit<Allstate> {
   }
 
   void restart() {
-    emit(Reset());
-
     list = ['', '', '', '', '', '', '', '', ''];
     playername = 'X';
     playwinner = "";
+    emit(Reset());
   }
 
   void checkwinner() {
     if (list[0] == list[1] && list[1] == list[2] && list[0] != '') {
-      emit(Winner());
       playwinner = list[0];
+      emit(Winner());
     } else if (list[2] == list[5] && list[5] == list[8] && list[2] != '') {
-      emit(Winner());
-
       playwinner = list[2];
+      emit(Winner());
     } else if (list[8] == list[7] && list[7] == list[6] && list[8] != '') {
-      emit(Winner());
-
       playwinner = list[8];
+      emit(Winner());
     } else if (list[0] == list[3] && list[3] == list[6] && list[0] != '') {
-      emit(Winner());
-
       playwinner = list[0];
+      emit(Winner());
     } else if (list[1] == list[4] && list[4] == list[7] && list[1] != '') {
-      emit(Winner());
-
       playwinner = list[1];
+      emit(Winner());
     } else if (list[3] == list[4] && list[4] == list[5] && list[3] != '') {
-      emit(Winner());
-
       playwinner = list[3];
+      emit(Winner());
     } else if (list[0] == list[4] && list[4] == list[8] && list[0] != '') {
-      emit(Winner());
-
       playwinner = list[0];
-    } else if (list[2] == list[4] && list[4] == list[6] && list[2] != '') {
       emit(Winner());
-
+    } else if (list[2] == list[4] && list[4] == list[6] && list[2] != '') {
       playwinner = list[2];
+      emit(Winner());
     } else {
       emit(PlayState());
     }

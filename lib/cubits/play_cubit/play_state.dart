@@ -1,6 +1,4 @@
-class Winner extends Allstate {
-  final String message = "Winner";
-}
+class Winner extends Allstate {}
 
 class PlayState extends Allstate {}
 
