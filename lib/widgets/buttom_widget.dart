@@ -14,7 +14,7 @@ class ButtomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 80, vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 60, vertical: 5),
       width: double.infinity,
       decoration: BoxDecoration(
         color: color,
