@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xo_project/cubits/play_cubit/play_cubit.dart';
 import 'package:xo_project/cubits/play_cubit/play_state.dart';
 import 'package:xo_project/widgets/buttom_widget.dart';
+import 'package:xo_project/widgets/message_dialog.dart';
 import 'package:xo_project/widgets/play_widget.dart';
 
 class GamePlayView extends StatefulWidget {
@@ -18,7 +19,20 @@ class _GamePlayViewState extends State<GamePlayView> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: BlocConsumer<PlayCubit, Allstate>(
-        listener: (context, state) {},
+        listener: (context, state) async {
+          if (state is Winner || state is Draw) {
+            BlocProvider.of<PlayCubit>(context).playname();
+
+            await showDialogMessage(
+              context: context,
+              title: state is Draw ? 'Draw' : 'winner',
+              message: state is Draw
+                  ? ' Draw between two players'
+                  : ' player ${BlocProvider.of<PlayCubit>(context).playername} : is winner',
+            );
+            await BlocProvider.of<PlayCubit>(context).restart();
+          }
+        },
         builder: (context, state) {
           return SafeArea(
               child: Container(

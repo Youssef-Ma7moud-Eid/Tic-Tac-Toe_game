@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
 
 Future<void> showDialogMessage(
-    BuildContext context, String title, String message) {
+    {required BuildContext context,
+    required String title,
+    required String message}) {
   return showDialog(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text(title),
+        backgroundColor: Colors.yellow,
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 20,
+          ),
+        ),
         content: Text(message),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: const Text('Play Again'),
+            child: const Text(
+              'Play Again',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
           ),
         ],
       );

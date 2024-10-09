@@ -19,7 +19,7 @@ void scaffoldmessenger({
       content: Text(
         text,
         style: TextStyle(
-          fontSize: 18,
+          fontSize: 20,
           color: color,
         ),
       ),

@@ -6,14 +6,17 @@ class PlayCubit extends Cubit<Allstate> {
   PlayCubit() : super(PlayState());
   String playername = 'X';
   String playwinner = "";
-  void draw() {
-    if (list.length == 9) {
-      list = ['', '', '', '', '', '', '', '', ''];
-      playername = 'X';
-      playwinner = "";
+  void checkdraw() {
+    if (list[0] != '' &&
+        list[1] != '' &&
+        list[2] != '' &&
+        list[3] != '' &&
+        list[4] != '' &&
+        list[5] != '' &&
+        list[6] != '' &&
+        list[7] != '' &&
+        list[8] != '') {
       emit(Draw());
-    } else {
-      emit(PlayState());
     }
   }
 
@@ -25,7 +28,8 @@ class PlayCubit extends Cubit<Allstate> {
     }
   }
 
-  void restart() {
+  Future<void> restart() async {
+    await Future.delayed(const Duration(milliseconds: 500));
     list = ['', '', '', '', '', '', '', '', ''];
     playername = 'X';
     playwinner = "";
@@ -58,6 +62,7 @@ class PlayCubit extends Cubit<Allstate> {
       playwinner = list[2];
       emit(Winner());
     } else {
+      checkdraw();
       emit(PlayState());
     }
   }
